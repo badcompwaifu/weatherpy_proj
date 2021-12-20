@@ -1,0 +1,100 @@
+{% extends 'weatherpy/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class='form_wrapper'>
+    <div class=top_vertical_section>Weatherpy</div>
+    <div class=center_vertical_section>
+        <div class=horizontal_section></div>
+
+        <form method='POST' action="{% url 'weather' %}">
+            {% csrf_token %}
+            <input type="text" name='name' class='inputform' placeholder="Type a location to get weather">
+            <!-- <input type="submit" value="OK"> -->
+        </form>
+
+        <div class=horizontal_section>
+
+        </div>
+    </div>
+    <div class=bottom_vertical_section>
+
+
+        <a href="{% url 'randomloc' %}" class='link'>Give me random location instead</a>
+
+    </div>
+</div>
+
+
+<style>
+    a.link {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        text-decoration: none;
+    }
+
+    a.link:hover {
+        color: rgb(13, 25, 84);
+    }
+
+    div.form_wrapper {
+        margin-top: 25%;
+        display: flex;
+        flex-direction: column;
+        padding: 35px;
+        border-radius: 10px;
+        background: linear-gradient(155deg, rgb(89, 30, 1), rgb(171, 99, 48));
+    }
+
+    div.top_vertical_section {
+        padding: 20px;
+        flex-grow: 1;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-weight: 700;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 75px;
+        margin: auto;
+    }
+
+    div.bottom_vertical_section {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        margin: auto;
+        column-gap: 10px;
+        padding: 20px;
+
+    }
+
+    div.center_vertical_section {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    div.horizontal_section {
+        flex-grow: 1;
+    }
+
+    div.form_section {
+        flex-grow: 3;
+        color: rgb(67, 199, 67);
+        border-style: solid;
+
+    }
+
+    input.inputform {
+        width: 500px;
+        font-size: 25px;
+        padding: 5px;
+    }
+</style>
+
+{% endblock %}

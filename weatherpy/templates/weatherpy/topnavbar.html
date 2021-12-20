@@ -1,0 +1,78 @@
+<div class="navbar">
+    <div class='stuff'>
+        <a href="{% url 'home' %}" class='home'>WeatherPy</a>
+        <a href="{% url 'about' %}" class='about'>About</a>
+        <a href="{% url 'contact' %}" class='contact'>Contact Us</a>
+        <div>
+
+            <form method='POST' action="{% url 'weather' %}">
+                {% csrf_token %}
+                <input type="text" name='name' class='inputtext' placeholder="Location...">
+                <!-- <input type="submit" value="OK"> -->
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .inputtext {
+        float: right;
+        margin-top: 10px;
+        height: 25px;
+        width: minmax(100px, 400px);
+    }
+
+    .home {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        color: rgb(221, 92, 0);
+    }
+
+
+
+    .navbar {
+        display: grid;
+        grid-template-columns: minmax(100px, 1fr) minmax(300px, 800px) minmax(100px, 1fr);
+        background-color: rgb(0, 55, 132);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: solid;
+        border-bottom-width: 1px;
+
+
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 12px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    .navbar a.contact {
+        float: right;
+        color: white;
+    }
+
+    .navbar a.home {
+        font-weight: bold;
+        color: rgb(255, 138, 55);
+    }
+
+    .navbar a.about {
+        color: white;
+    }
+
+    .navbar a:hover {
+        background: rgb(2, 74, 174);
+        color: white;
+    }
+</style>

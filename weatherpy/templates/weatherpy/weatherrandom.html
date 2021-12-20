@@ -1,0 +1,362 @@
+{% extends 'weatherpy/base.html' %}
+
+{% block content %}
+
+
+
+<div class='flex-content'>
+    <div class='location'>Weather at lat: {{ lat }}, lon: {{ lon }}</div>
+    <div class='weather_content'>
+        <div class='weather_main'>
+            <div class='weather_temp'>{{ temp }}°</div>
+            <div class='weather_sky'>{{ weather }}</div>
+            <div class='weather_thermic'>Sensação Térmica: {{ temp_feel }}°</div>
+
+        </div>
+        <div class='weather_icon'> Happy Little Clouds</div>
+    </div>
+</div>
+
+<div class='flex-content'>
+    <div class='daily_forecast_wrapper'>
+        <div class='daily_forecast'>
+            <div class='forecast_today_value'>{{ morning_temp }}°</div>
+            <div class='forecast_today_text'>Morning</div>
+        </div>
+        <div class='daily_forecast'>
+            <div class='forecast_today_value'>{{ day_temp }}°</div>
+            <div class='forecast_today_text'>Day</div>
+        </div>
+        <div class='daily_forecast'>
+            <div class='forecast_today_value'>{{ evening_temp }}°</div>
+            <div class='forecast_today_text'>Evening</div>
+        </div>
+        <div class='daily_forecast'>
+            <div class='forecast_today_value'>{{ night_temp }}°</div>
+            <div class='forecast_today_text'>Night</div>
+        </div>
+    </div>
+</div>
+
+<div class='flex-content'>
+    <div class='location'>Forecast 7 days for lat: {{ lat }}, lon: {{ lon }}</div>
+    <div class='daily_forecast_wrapper'>
+        <div class='forecast_7days'>
+            <div class='forecast_7days_value'>{{ day1_temp }}°</div>
+            <div class='forecast_7days_weather'>{{ day1_weather }}</div>
+            <div class='forecast_7days_text'>{{ weekday1 }}</div>
+        </div>
+        <div class='forecast_7days'>
+            <div class='forecast_7days_value'>{{ day2_temp }}°</div>
+            <div class='forecast_7days_weather'>{{ day2_weather }}</div>
+            <div class='forecast_7days_text'>{{ weekday2 }}</div>
+        </div>
+        <div class='forecast_7days'>
+            <div class='forecast_7days_value'>{{ day3_temp }}°</div>
+            <div class='forecast_7days_weather'>{{ day3_weather }}</div>
+            <div class='forecast_7days_text'>{{ weekday3 }}</div>
+        </div>
+        <div class='forecast_7days'>
+            <div class='forecast_7days_value'>{{ day4_temp }}°</div>
+            <div class='forecast_7days_weather'>{{ day4_weather }}</div>
+            <div class='forecast_7days_text'>{{ weekday4 }}</div>
+        </div>
+        <div class='forecast_7days'>
+            <div class='forecast_7days_value'>{{ day5_temp }}°</div>
+            <div class='forecast_7days_weather'>{{ day5_weather }}</div>
+            <div class='forecast_7days_text'>{{ weekday5 }}</div>
+        </div>
+        <div class='forecast_7days'>
+            <div class='forecast_7days_value'>{{ day6_temp }}°</div>
+            <div class='forecast_7days_weather'>{{ day6_weather }}</div>
+            <div class='forecast_7days_text'>{{ weekday6 }}</div>
+        </div>
+        <div class='forecast_7days'>
+            <div class='forecast_7days_value'>{{ day7_temp }}°</div>
+            <div class='forecast_7days_weather'>{{ day7_weather }}</div>
+            <div class='forecast_7days_text'>{{ weekday7 }}</div>
+        </div>
+    </div>
+</div>
+
+<div class='flex-content'>
+    <div class='location'>Weather data for lat: {{ lat }}, lon: {{ lon }}</div>
+    <div class='weather_content_data'>
+
+
+        <div class='weather_content_left'>
+
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Minimum Temperature</div>
+                <div class='weather_data_value'>{{ min_temp }}°</div>
+            </div>
+
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Maximum Temperature</div>
+                <div class='weather_data_value'>{{ max_temp }}°</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Pressure</div>
+                <div class='weather_data_value'>{{ pressure }} hpa</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Humidity</div>
+                <div class='weather_data_value'>{{ humidity }} %</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Visibility</div>
+                <div class='weather_data_value'>{{ visibility }} feet</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Cloud Coverage</div>
+                <div class='weather_data_value'>{{ clouds }} %</div>
+            </div>
+
+        </div>
+
+        <div class='weather_content_right'>
+
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Wind Speed</div>
+                <div class='weather_data_value'>{{ wind_spd }} kts</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Wind Direction</div>
+                <div class='weather_data_value'>{{ wind_direction }} º</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Gust Speed</div>
+                <div class='weather_data_value'>{{ gusts }} kts</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Sunrise</div>
+                <div class='weather_data_value'>{{ sunrise }}</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Sunset</div>
+                <div class='weather_data_value'>{{ sunset }}</div>
+            </div>
+            <div class='weather_data_entry'>
+                <div class='weather_data_text'>Country Code</div>
+                <div class='weather_data_value'>{{ country_code }}</div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div>
+    {{ weathermap }}
+</div>
+
+<style>
+    div.forecast_7days_weather {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+        text-align: left;
+        font-weight: 600;
+        color: white;
+        margin: auto;
+        flex-grow: 1;
+
+    }
+
+    div.forecast_7days_text {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 14px;
+        text-align: left;
+        color: white;
+        margin: auto;
+        flex-grow: 1;
+
+    }
+
+    div.forecast_7days_value {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        font-weight: 600;
+        color: white;
+        margin: auto;
+        text-align: center;
+        flex-grow: 2;
+
+    }
+
+    div.forecast_7days {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-color: white;
+    }
+
+    div.daily_forecast_wrapper {
+        display: flex;
+        flex-direction: row;
+        column-gap: 5px;
+    }
+
+    div.daily_forecast {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-color: white;
+    }
+
+    div.forecast_today_value {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 60px;
+        font-weight: 600;
+        color: white;
+        margin: auto;
+        text-align: center;
+        flex-grow: 2;
+
+    }
+
+    div.forecast_today_text {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        text-align: left;
+        color: white;
+        margin: auto;
+        flex-grow: 1;
+
+    }
+
+    div.weather_data_text {
+        flex-grow: 2;
+        text-align: left;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+
+    }
+
+    div.weather_data_value {
+        flex-grow: 1;
+        text-align: right;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+
+    }
+
+    div.weather_data_entry {
+        flex-grow: 1;
+        flex-wrap: wrap;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+        height: 30px;
+        width: 100%;
+        color: white;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    div.weather_content_left {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    div.weather_content_right {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+
+    div.weather_content_data {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        flex-direction: row;
+        gap: 5px;
+        column-gap: 20px;
+    }
+
+
+    div.flex-content {
+        border-radius: 15px;
+        margin: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: linear-gradient(155deg, rgb(89, 30, 1), rgb(171, 99, 48));
+
+    }
+
+    div.location {
+        flex-grow: 1;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: white;
+        color: white;
+        height: 35px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 700;
+        text-shadow: 2px 2px rgb(43, 43, 43);
+        font-size: 25px;
+    }
+
+    div.weather_content {
+        flex-grow: 2;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    div.weather_main {
+        flex-grow: 4;
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.weather_icon {
+        width: 150px;
+    }
+
+    div.weather_temp {
+        font-family: Arial, Helvetica, sans-serif;
+        text-shadow: 2px 2px rgb(43, 43, 43);
+        font-size: 100px;
+        font-weight: 600;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        height: auto;
+    }
+
+    div.weather_sky {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        text-shadow: 2px 2px rgb(43, 43, 43);
+        font-weight: 700;
+        padding-left: 10px;
+        height: auto;
+        color: white;
+    }
+
+    div.weather_thermic {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+        text-shadow: 2px 2px rgb(43, 43, 43);
+        padding-left: 10px;
+        height: auto;
+        color: white;
+    }
+</style>
+
+
+{% endblock %}
