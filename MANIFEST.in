@@ -1,1 +1,2 @@
-recursive-include weatherpy/templates/ *
+include requirements.txt
+recursive-include weatherpy/templates *.*

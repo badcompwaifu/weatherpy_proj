@@ -1,4 +1,5 @@
 MANIFEST.in
+requirements.txt
 setup.py
 weatherpy/__init__.py
 weatherpy/admin.py
@@ -14,6 +15,17 @@ weatherpy.egg-info/dependency_links.txt
 weatherpy.egg-info/top_level.txt
 weatherpy/migrations/0001_initial.py
 weatherpy/migrations/__init__.py
+weatherpy/templates/weatherpy/ABOBOAOBAOBOASB.txt
+weatherpy/templates/weatherpy/about.html
+weatherpy/templates/weatherpy/about_content.html
+weatherpy/templates/weatherpy/base.html
+weatherpy/templates/weatherpy/contactform.html
+weatherpy/templates/weatherpy/home.html
+weatherpy/templates/weatherpy/thanks.html
+weatherpy/templates/weatherpy/topnavbar.html
+weatherpy/templates/weatherpy/weather.html
+weatherpy/templates/weatherpy/weather_404.html
+weatherpy/templates/weatherpy/weatherrandom.html
 weatherpy_proj/__init__.py
 weatherpy_proj/asgi.py
 weatherpy_proj/settings.py
