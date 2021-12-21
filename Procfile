@@ -1,0 +1,1 @@
+web: gunicorn weatherpy_proj.wsgi

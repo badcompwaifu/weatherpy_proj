@@ -1,4 +1,5 @@
 MANIFEST.in
+README.md
 requirements.txt
 setup.py
 weatherpy/__init__.py
@@ -15,7 +16,6 @@ weatherpy.egg-info/dependency_links.txt
 weatherpy.egg-info/top_level.txt
 weatherpy/migrations/0001_initial.py
 weatherpy/migrations/__init__.py
-weatherpy/templates/weatherpy/ABOBOAOBAOBOASB.txt
 weatherpy/templates/weatherpy/about.html
 weatherpy/templates/weatherpy/about_content.html
 weatherpy/templates/weatherpy/base.html
