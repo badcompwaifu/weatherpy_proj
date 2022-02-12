@@ -75,8 +75,9 @@ def weather(request):
     loc_upper = loc.title()
 
     # call for 'normal' API
+    api = os.getenv('openweatherapi')
     address = "https://api.openweathermap.org/data/2.5/weather?q=" + \
-        loc + "&appid=" + "81c4f61189c578db351b6f68d93ba526&units=metric"
+        loc + "&appid=" + api
     address_get = requests.get(address)
     jsonier = address_get.json()
 
